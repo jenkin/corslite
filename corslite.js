@@ -1,4 +1,4 @@
-function corslite(url, callback, cors) {
+function corslite(url, callback, cors, responseType) {
     var sent = false;
 
     if (typeof window.XMLHttpRequest === 'undefined') {
@@ -12,6 +12,7 @@ function corslite(url, callback, cors) {
     }
 
     var x = new window.XMLHttpRequest();
+    x.responseType = responseType || '';
 
     function isSuccessful(status) {
         return status >= 200 && status < 300 || status === 304;
